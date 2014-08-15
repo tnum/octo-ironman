@@ -1,1 +1,24 @@
 @import "bootstrap";
+
+header {
+  background: #030001;
+  color: #fff;
+  a {
+    color: #80ADC4;
+  }
+  .nav-tabs {
+    border-bottom: 0;
+  }
+  .user-info {
+    padding: 10px 15px;
+    a {
+      padding: 0 10px;
+      display: inline-block;
+    }
+  }
+}
+
+.jumbotron {
+  margin-top: 20px;
+}
+

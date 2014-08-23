@@ -62,3 +62,12 @@ gem 'simple_form'
 
 gem 'redcarpet'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'nokogiri', '~>1.5.0'
+
+gem 'fog'
+
+

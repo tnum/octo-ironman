@@ -60,3 +60,5 @@ gem 'pundit'
 
 gem 'simple_form'
 
+gem 'redcarpet'
+

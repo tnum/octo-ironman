@@ -70,6 +70,4 @@ gem 'nokogiri', '~>1.5.0'
 
 gem 'fog'
 
-gem 'will_paginate', '~> 3.0.5'
-
 

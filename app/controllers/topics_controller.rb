@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
+  require "#{Rails.root}/lib/paginate.rb"
+
   def index
-    @topics = Topic.custom_array
+    @topics = Topic.all
     authorize @topics
   end
 

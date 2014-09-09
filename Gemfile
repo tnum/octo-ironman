@@ -13,6 +13,7 @@ gem 'rails', '4.1.0'
  
  group :development do
    gem 'sqlite3'
+   gem 'better_errors'
  end
 
 # Use SCSS for stylesheets
@@ -71,5 +72,7 @@ gem 'nokogiri', '~>1.5.0'
 gem 'fog'
 
 gem 'will_paginate', '~> 3.0.5'
+
+gem 'binding_of_caller'
 
 

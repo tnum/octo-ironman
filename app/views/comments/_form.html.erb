@@ -1,0 +1,15 @@
+<%= simple_form_for [@topic, @post, @comments] do |f| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :body %>
+  <%= f.button :submit, class: "btn btn-success" %>
+
+<% end %>

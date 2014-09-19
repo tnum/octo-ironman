@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find( params[:post_id] )
 
-    @comment = current_user.comments.build( comment_params )
+    @comment = current_user.comments.build(comment_params)
     @comment.post = @post
 
     if @comment.save

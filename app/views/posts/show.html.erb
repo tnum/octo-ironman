@@ -21,6 +21,8 @@
    <h2>Comments</h2>
 
     <%= render partial: 'comments/comment', collection: @comments, locals: { topic: @topic, post: @post } %>
+    <%= link_to "Add comment", new_post_comment_path(@topic, @post), class: 'btn-success' %>
+
   </div>
 
 </div>

@@ -16,6 +16,10 @@ gem 'rails', '4.1.0'
    gem 'better_errors'
  end
 
+ group :test do
+  gem 'rspec-rails'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -74,5 +78,4 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 
 gem 'binding_of_caller'
-
 

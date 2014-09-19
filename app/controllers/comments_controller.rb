@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build
   end
@@ -38,6 +37,8 @@ class CommentsController < ApplicationController
       redirect_to[@topic, @post]
     end
   end
+
+  private
 
   def comment_params
     params.require(:comment).permit(:body)

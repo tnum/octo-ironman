@@ -1,24 +1,22 @@
+require 'rails_helper'
+
 describe Vote do
   describe "validations" do
+
+    before do
+      @post = Post.create(title: 'post title', body: 'post body must be long enough to be valid')
+      good_vote = @post.vote.create(value: 1)
+      second_good_vote = @post.votes.create(value: -1)
+      bad_vote = @post.votes.create(value: 2)
+      second_bad_vote = @post.votes.create(value: -2)
+    end
+
     describe "value validation" do
       it "only allows -1 or 1 as values" do
-        
-        before do
-          @post = Post.create(title: 'post title', body: 'post body')
-          1.times { @post.votes.create(value: 1) }
-          1.times { @post.votes.create(value: -1) }
-        end
-
-        describe '#up_vote' do
-          it "the up vote value should equal 1"
-          expect( @post.up_votes ).to eq(1)
-        end
-
-        describe '#down_vote' do
-          it "the down vote should equal -1"
-          expect( @post.down_votes ).to eq(-1)
-        end
-
+        expect( good_vote.valid? ).to eq(true)
+        expect( second_good_vote.valid? ).to eq(true)
+        expect( bad_vote.valid? ).to eq(false)
+        expect( second_bad_vote.valid? ).to eq(false)
       end
     end
   end

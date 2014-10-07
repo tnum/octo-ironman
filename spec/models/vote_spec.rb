@@ -1,20 +1,26 @@
 require 'rails_helper'
 
 describe Vote do
-  describe "validations" do
+  context "validations" do
+    let(:good_vote) { Vote.new(value: 1) }
+    let(:second_good_vote) { Vote.new(value: -1) }
+    let(:bad_vote) { Vote.new(value: 2) }
+    let(:second_bad_vote) { Vote.new(value: -2) }
 
-    before do
-      @post = Post.create(title: 'post title', body: 'post body must be long enough to be valid')
-      good_vote = @post.vote.create(value: 1)
-      second_good_vote = @post.votes.create(value: -1)
-      bad_vote = @post.votes.create(value: 2)
-      second_bad_vote = @post.votes.create(value: -2)
+    context "value is 1" do
+      it 'is valid' do
+        expect( good_vote.valid? ).to eq(true)
+      end
     end
 
-    describe "value validation" do
-      it "only allows -1 or 1 as values" do
-        expect( good_vote.valid? ).to eq(true)
+    context "value is -1" do
+      it 'is valid' do
         expect( second_good_vote.valid? ).to eq(true)
+      end
+    end
+
+    context "value is neither 1 or -1" do
+      it 'is not valid' do
         expect( bad_vote.valid? ).to eq(false)
         expect( second_bad_vote.valid? ).to eq(false)
       end

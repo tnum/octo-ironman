@@ -1,0 +1,3 @@
+class FavouritePolicy < ApplicationPolicy
+  
+end

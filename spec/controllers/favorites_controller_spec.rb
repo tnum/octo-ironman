@@ -24,7 +24,7 @@ require 'rails_helper'
    describe '#destroy' do
      it "destroys the favourite for the current user and post" do
        favourite = @user.favourite.where(post: @post).create
-       expect( @user.favourite.find_by_post_id(@post.id).class ).to eq(Favourite)
+       expect( @user.favourited.find_by_post_id(@post.id).class ).to eq(Favourite)
  
        delete :destroy, { post_id: @post.id, id: favourite.id }
  

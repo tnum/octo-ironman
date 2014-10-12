@@ -13,7 +13,7 @@ require 'rails_helper'
  
    describe '#create' do
      it "creates a favourite for the current user and specified post" do
-       expect( @user.favourite.find_by_post_id(@post.id) ).to eq(nil)
+       expect( @user.favourited.find_by_post_id(@post.id) ).to eq(nil)
  
        post :create, { post_id: @post.id }
  

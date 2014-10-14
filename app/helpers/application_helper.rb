@@ -23,7 +23,7 @@ module ApplicationHelper
   end
 
   def vote_link_classes(post, direction)
-    if (current_user.voted(post) && current_user.voted(post).up_vote?) || (current_user.voted(post) && current_user.voted(post).down_vote?)
+    if (current_user.voted(post) && current_user.voted(post).up_vote?) || (current_user.voted(post) && current_user.voted(post).down_vote?).first
       "glyphicon glyphicon-chevron-#{direction} disabled"
     else
       "glyphicon glyphicon-chevron-#{direction}"

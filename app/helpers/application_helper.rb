@@ -22,4 +22,12 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
 
+  def vote_link_classes(post, direction)
+    if (current_user.voted(post) && current_user.voted(post).up_vote?) || (current_user.voted(post) && current_user.voted(post).down_vote?)
+      "glyphicon glyphicon-chevron-#{direction} disabled"
+    else
+      "glyphicon glyphicon-chevron-#{direction}"
+    end
+  end
+
 end

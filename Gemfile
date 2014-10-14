@@ -18,6 +18,7 @@ gem 'rails', '4.1.0'
 
  group :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 # Use SCSS for stylesheets

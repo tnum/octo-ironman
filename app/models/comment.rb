@@ -10,9 +10,14 @@ class Comment < ActiveRecord::Base
  
   def send_favourite_emails
     post.favourites.each do |favourite|
-      FavouriteMailer.new_comment(favourite.user, post, self).deliver
+      if should_receive_update_for?(favourite)
+        FavoriteMailer.new_comment(favourite.user, self.post, self).deliver
+      end
     end
   end
 
+  def should_receive_update_for?(favourite)
+    user_id != favourite.user_id && favourite.user.email_favourites?
+  end
 
 end

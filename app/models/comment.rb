@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
   end
 
   def should_receive_update_for?(favourite)
-    user_id != favourite.user_id && favourite.user.email_favourites?
+    user_id != favourite.user_id && favourite.user.email_favorites?
   end
 
 end

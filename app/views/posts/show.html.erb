@@ -25,6 +25,11 @@
    </div>
    <%= render partial: 'favourites/favourite', locals: { post: @post } %>
 
+  <% if current_user %>
+    <h4>New Comment</h4>
+    <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+  <% end %>
+
   </div>
 
   <div class="col-md-8">

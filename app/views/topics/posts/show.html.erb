@@ -1,0 +1,38 @@
+<h1><%= markdown @post.title %></h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= render partial: 'votes/voter', locals: { post: @post } %>
+    <small>
+      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      <%= @post.user.name %>
+    </small>
+    <p><%= markdown @post.body %></p>
+  </div>
+
+  <div class="col-md-4">
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %>
+
+     <div>
+     <h3><%= pluralize(@post.points, 'point') %></h3>
+     <small>
+       <%= pluralize(@post.up_votes, 'up vote') %>, 
+       <%= pluralize(@post.down_votes, 'down vote') %>
+     </small>
+   </div>
+   <%= render partial: 'favourites/favourite', locals: { post: @post } %>
+
+  </div>
+
+  <div class="col-md-8">
+   <h2>Comments</h2>
+
+    <%= render partial: 'comments/comment', collection: @comments, locals: { topic: @topic, post: @post } %>
+    <%= link_to "Add comment", new_post_comment_path(@topic, @post), class: 'btn-success' %>
+
+  </div>
+
+</div>
